@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>        
+        <parameter key="jira_api.limit">100</parameter>        
+    </parameters>
+    <services>
+        <service id="jira_api.rest_client" class="Guzzle\Http\Client" public="false">
+            <argument key="baseUrl">%jira_api.url%</argument>
+            <argument type="collection">
+                <argument key="curl.options" type="collection">
+                    <argument key="CURLOPT_USERPWD">%jira_api.credentials%</argument>
+                </argument>
+            </argument>
+        </service>
+        <service id="jira_api.issue" class="JiraApiBundle\Service\IssueService" public="true">
+            <argument type="service" id="jira_api.rest_client"></argument>
+        </service>
+        <service id="jira_api.search" class="JiraApiBundle\Service\SearchService" public="true">
+            <argument type="service" id="jira_api.rest_client"></argument>
+        </service>         
+    </services>
+</container>
