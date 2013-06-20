@@ -6,78 +6,78 @@
     "issues":[{
         "expand":"editmeta,renderedFields,transitions,changelog,operations",
         "id":"15134",
-        "self":"https://jira.medicore.nl/jira/rest/api/2/issue/15134",
+        "self":"https://jira.company.com/jira/rest/api/2/issue/15134",
         "key":"TD-945",
         "fields":{
-            "summary":"Order of the Ins/unins and Main physician column should be between Declaration and Clinic",
+            "summary":"Summary details.",
             "progress":{
                 "progress":0,
                 "total":0
             },
             "issuetype":{
-                "self":"https://jira.medicore.nl/jira/rest/api/2/issuetype/1",
+                "self":"https://jira.company.com/jira/rest/api/2/issuetype/1",
                 "id":"1",
-                "description":"A problem which impairs or prevents the functions of the product.",
-                "iconUrl":"https://jira.medicore.nl/jira/images/icons/bug.gif",
+                "description":"Description details.",
+                "iconUrl":"https://jira.company.com/jira/images/icons/bug.gif",
                 "name":"Bug",
                 "subtask":false
             },
             "timespent":null,
             "reporter":{
-                "self":"https://jira.medicore.nl/jira/rest/api/2/user?username=srinu.alavilli",
-                "name":"srinu.alavilli",
-                "emailAddress":"srinu.alavilli@medicore.nl",
+                "self":"https://jira.company.com/jira/rest/api/2/user?username=user_two",
+                "name":"user_two",
+                "emailAddress":"user_two@company.com",
                 "avatarUrls":{
-                    "16x16":"https://jira.medicore.nl/jira/secure/useravatar?size=small&ownerId=srinu.alavilli&avatarId=10828",
-                    "48x48":"https://jira.medicore.nl/jira/secure/useravatar?ownerId=srinu.alavilli&avatarId=10828"
+                    "16x16":"https://jira.company.com/jira/secure/useravatar?size=small&ownerId=user_two&avatarId=10828",
+                    "48x48":"https://jira.company.com/jira/secure/useravatar?ownerId=user_two&avatarId=10828"
                 },
-                "displayName":"Srinu Alavilli",
+                "displayName":"User Two",
                 "active":true
             },
             "created":"2013-02-13T12:02:12.000+0100",
             "updated":"2013-02-13T13:01:07.000+0100",
             "priority":{
-                "self":"https://jira.medicore.nl/jira/rest/api/2/priority/4",
-                "iconUrl":"https://jira.medicore.nl/jira/images/icons/priority_minor.gif",
+                "self":"https://jira.company.com/jira/rest/api/2/priority/4",
+                "iconUrl":"https://jira.company.com/jira/images/icons/priority_minor.gif",
                 "name":"Minor",
                 "id":"4"
             },
-            "description":"Order of the new columns should be in below position\r\nthis is the order in search result\r\ndeclaration code – \r\nins./unins\r\nMain Physician\r\nClinics",
+            "description":"Description details.",
             "customfield_10001":null,
             "issuelinks":[{
                 "id":"14164",
-                "self":"https://jira.medicore.nl/jira/rest/api/2/issueLink/14164",
+                "self":"https://jira.company.com/jira/rest/api/2/issueLink/14164",
                 "type":{
                     "id":"10200",
                     "name":"Dependency",
                     "inward":"is needed by",
                     "outward":"depends",
-                    "self":"https://jira.medicore.nl/jira/rest/api/2/issueLinkType/10200"
+                    "self":"https://jira.company.com/jira/rest/api/2/issueLinkType/10200"
                 },
                 "outwardIssue":{
                     "id":"14908",
                     "key":"TD-939",
-                    "self":"https://jira.medicore.nl/jira/rest/api/2/issue/14908",
+                    "self":"https://jira.company.com/jira/rest/api/2/issue/14908",
                     "fields":{
-                        "summary":"Find contract popup pre filled with all values when click on find icon from 'Edit contract' and 'Copy as new contract popup'",
+                        "summary":"Summary details",
                         "status":{
-                            "self":"https://jira.medicore.nl/jira/rest/api/2/status/5",
-                            "description":"A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
-                            "iconUrl":"https://jira.medicore.nl/jira/images/icons/status_resolved.gif",
+                            "self":"https://jira.company.com/jira/rest/api/2/status/5",
+                            "description":"Description details.",
+                            "iconUrl":"https://jira.company.com/jira/images/icons/status_resolved.gif",
                             "name":"Resolved",
                             "id":"5"
                         },
                         "issuetype":{
-                            "self":"https://jira.medicore.nl/jira/rest/api/2/issuetype/1",
+                            "self":"https://jira.company.com/jira/rest/api/2/issuetype/1",
                             "id":"1",
-                            "description":"A problem which impairs or prevents the functions of the product.",
-                            "iconUrl":"https://jira.medicore.nl/jira/images/icons/bug.gif",
+                            "description":"Description details.",
+                            "iconUrl":"https://jira.company.com/jira/images/icons/bug.gif",
                             "name":"Bug",
                             "subtask":false
                         },
                         "priority":{
-                            "self":"https://jira.medicore.nl/jira/rest/api/2/priority/3",
-                            "iconUrl":"https://jira.medicore.nl/jira/images/icons/priority_major.gif",
+                            "self":"https://jira.company.com/jira/rest/api/2/priority/3",
+                            "iconUrl":"https://jira.company.com/jira/images/icons/priority_major.gif",
                             "name":"Major",
                             "id":"3"
                         }
@@ -87,22 +87,22 @@
     "customfield_10000":null,
     "subtasks":[],
     "status":{
-        "self":"https://jira.medicore.nl/jira/rest/api/2/status/5",
-        "description":"A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
-        "iconUrl":"https://jira.medicore.nl/jira/images/icons/status_resolved.gif",
+        "self":"https://jira.company.com/jira/rest/api/2/status/5",
+        "description":"Description details.",
+        "iconUrl":"https://jira.company.com/jira/images/icons/status_resolved.gif",
         "name":"Resolved",
         "id":"5"
     },
     "labels":[],
     "workratio":-1,
     "project":{
-        "self":"https://jira.medicore.nl/jira/rest/api/2/project/TD",
+        "self":"https://jira.company.com/jira/rest/api/2/project/TD",
         "id":"10203",
         "key":"TD",
-        "name":"Team Amy",
+        "name":"Team MyTeam",
         "avatarUrls":{
-            "16x16":"https://jira.medicore.nl/jira/secure/projectavatar?size=small&pid=10203&avatarId=10306",
-            "48x48":"https://jira.medicore.nl/jira/secure/projectavatar?pid=10203&avatarId=10306"
+            "16x16":"https://jira.company.com/jira/secure/projectavatar?size=small&pid=10203&avatarId=10306",
+            "48x48":"https://jira.company.com/jira/secure/projectavatar?pid=10203&avatarId=10306"
         }
     },
     "environment":null,
@@ -118,15 +118,15 @@
     "customfield_10110":null,
     "customfield_10304":null,
     "votes":{
-        "self":"https://jira.medicore.nl/jira/rest/api/2/issue/TD-945/votes",
+        "self":"https://jira.company.com/jira/rest/api/2/issue/TD-945/votes",
         "votes":0,
         "hasVoted":false
     },
     "fixVersions":[],
     "resolution":{
-        "self":"https://jira.medicore.nl/jira/rest/api/2/resolution/1",
+        "self":"https://jira.company.com/jira/rest/api/2/resolution/1",
         "id":"1",
-        "description":"A fix for this issue is checked into the tree and tested.",
+        "description":"Description details.",
         "name":"Fixed"
     },
     "customfield_10116":null,
@@ -139,7 +139,7 @@
     "customfield_10104":"6040",
     "customfield_10105":null,
     "watches":{
-        "self":"https://jira.medicore.nl/jira/rest/api/2/issue/TD-945/watchers",
+        "self":"https://jira.company.com/jira/rest/api/2/issue/TD-945/watchers",
         "watchCount":2,
         "isWatching":false
     },
@@ -148,14 +148,14 @@
     "customfield_10101":null,
     "customfield_10100":null,
     "assignee":{
-        "self":"https://jira.medicore.nl/jira/rest/api/2/user?username=rahul.chakraborty",
-        "name":"rahul.chakraborty",
-        "emailAddress":"rahul.chakraborty@medicore.nl",
+        "self":"https://jira.company.com/jira/rest/api/2/user?username=user_one",
+        "name":"user_one",
+        "emailAddress":"user_one@company.com",
         "avatarUrls":{
-            "16x16":"https://jira.medicore.nl/jira/secure/useravatar?size=small&ownerId=rahul.chakraborty&avatarId=10333",
-            "48x48":"https://jira.medicore.nl/jira/secure/useravatar?ownerId=rahul.chakraborty&avatarId=10333"
+            "16x16":"https://jira.company.com/jira/secure/useravatar?size=small&ownerId=user_one&avatarId=10333",
+            "48x48":"https://jira.company.com/jira/secure/useravatar?ownerId=user_one&avatarId=10333"
         },
-        "displayName":"Rahul Chakraborty",
+        "displayName":"User One",
         "active":true
     },
     "customfield_10500":null,
