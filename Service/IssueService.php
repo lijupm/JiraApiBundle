@@ -12,7 +12,7 @@ class IssueService extends AbstractService
     /**
      * Constructor.
      *
-     * @param Guzzle\Http\Client $client 
+     * @param \Guzzle\Http\Client $client
      */
     public function __construct(Client $client)
     {
@@ -20,18 +20,18 @@ class IssueService extends AbstractService
     }
 
     /**
-     * Method to get issue details from JIRA.
+     * Retrieve details for a specific issue.
      * 
-     * @param string $issueId Issue ID holds the pattern DDI-111
+     * @param string $key
      * 
      * @return array
      */
-    public function getIssueDetails($issueId)
+    public function getAll($key)
     {
-        $path = sprintf('issue/%s', $issueId);
-        $url = $this->createUrl($path);
-        $issueDetail = $this->getResponseAsArray($url);
-        
-        return $issueDetail;
+        $url = $this->createUrl(sprintf('issue/%s', $key));
+
+        $result = $this->getResponseAsArray($url);
+
+        return $result;
     }
 }
