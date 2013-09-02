@@ -3,6 +3,7 @@
 namespace JiraApiBundle\Service;
 
 use Guzzle\Http\Client;
+use Guzzle\Http\Exception\BadResponseException;
 
 /**
  * Base class that contain common features that is needed by other classes.
@@ -24,7 +25,7 @@ abstract class AbstractService
     }
 
     /**
-     * Creates and returns an stash compatible URL
+     * Creates and returns a compatible URL.
      *
      * @param string $path
      * @param array  $params
@@ -67,50 +68,6 @@ abstract class AbstractService
     }
 
     /**
-     * Set the result limit.
-     *
-     * @param integer $limit
-     *
-     * @return self
-     */
-    public function setLimit($limit)
-    {
-        $this->limit = $limit;
-
-        return $this;
-    }
-
-    /**
-     * Returns the size of the current result page.
-     *
-     * @return int
-     */
-    public function getSize()
-    {
-        return $this->size;
-    }
-
-    /**
-     * Indicates whether the current page is the last result page.
-     *
-     * @return bool
-     */
-    public function isLastPage()
-    {
-        return $this->lastPage;
-    }
-
-    /**
-     * Returns the start of the current result page.
-     *
-     * @return int
-     */
-    public function getStart()
-    {
-        return $this->start;
-    }
-
-    /**
      * Indicates whether the current result page contains data.
      *
      * @param $result
@@ -119,11 +76,7 @@ abstract class AbstractService
      */
     private function resultHasData($result)
     {
-        if (array_key_exists('errorMessages', $result)) {
-            return false;
-        }
-
-        if (array_key_exists('errors', $result)) {
+        if (array_key_exists('errorMessages', $result) || array_key_exists('errors', $result)) {
             return false;
         }
 

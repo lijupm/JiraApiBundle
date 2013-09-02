@@ -19,10 +19,14 @@ class SearchServiceTest extends TestCase
             'jql' => 'id=TD-945'
         );
 
+        $service->setLimit(10);
+
         $result = $service->getAll($params);
 
-        $this->assertEquals('TD-945', $result['issues'][0]['key']);
-        $this->assertEquals('Bug', $result['issues'][0]['fields']['issuetype']['name']);
+        $this->assertEquals(5, count($result));
+        $this->assertEquals($service->getSize(), 1);
+        $this->assertEquals($service->getStart(), 0);
+
     }
 
     public function testSearchServiceGetAllException()
@@ -37,6 +41,15 @@ class SearchServiceTest extends TestCase
     public function testSearchServiceGetAllNoData()
     {
         $service = new SearchService($this->getClientMockNoData());
+
+        $result = $service->getAll(array());
+
+        $this->assertEquals(false, $result);
+    }
+
+    public function testSearchServiceGetAllErrors()
+    {
+        $service = new SearchService($this->getClientMockErrors());
 
         $result = $service->getAll(array());
 

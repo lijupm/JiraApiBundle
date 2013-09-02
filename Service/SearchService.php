@@ -3,6 +3,7 @@
 namespace JiraApiBundle\Service;
 
 use Guzzle\Http\Client;
+use Guzzle\Http\Exception\BadResponseException;
 
 /**
  * Service class that handles searches.
@@ -25,16 +26,6 @@ class SearchService extends AbstractService
     private $size = 0;
 
     /**
-     * Constructor.
-     *
-     * @param \Guzzle\Http\Client $client
-     */
-    public function __construct(Client $client)
-    {
-        $this->client = $client;        
-    }
-
-    /**
      * Search for issues.
      * 
      * @param array $params
@@ -45,15 +36,17 @@ class SearchService extends AbstractService
     {
         $url = $this->createUrl('search', $params);
 
-        try {
-            $result = $this->getResponseAsArray($url);
-        } catch (BadResponseException $ex) {
-            return false;
-        }
-        
-        return $result;
+        return $this->getResponseAsArray($url);
     }
 
+    /**
+     * Creates and returns a compatible URL.
+     *
+     * @param string $path
+     * @param array  $params
+     *
+     * @return string
+     */
     public function createUrl($path, $params)
     {
         $params = array_merge(
@@ -72,20 +65,87 @@ class SearchService extends AbstractService
         return $url;
     }
 
-    public function getResponseAsArray($url)
+    /**
+     * Get response as an array, returns false if no result.
+     *
+     * @param string $url
+     *
+     * @return array
+     */
+    protected function getResponseAsArray($url)
     {
-        $result = parent::getResponseAsArray($url);
+        $request = $this->client->get($url);
 
-        if ($result) {
-            $this->start = $result['startAt'];
-            $this->limit = $result['maxResults'];
-            $this->size  = $result['total'];
-
-            if (!$this->lastPage) {
-                $this->start += $this->limit;
-            }
+        try  {
+            $response = $request->send();
+        } catch (BadResponseException $e) {
+            return false;
         }
 
-        return $result;
+        $result = $response->json();
+
+        if ($this->resultHasData($result)) {
+            $this->limit = $result['maxResults'];
+            $this->size  = $result['total'];
+            $this->start = $result['startAt'];
+
+            return $result;
+        }
+
+        return false;
+    }
+
+    /**
+     * Indicates whether the current result page contains data.
+     *
+     * @param $result
+     *
+     * @return bool
+     */
+    private function resultHasData($result)
+    {
+        if (array_key_exists('errorMessages', $result) || array_key_exists('errors', $result)) {
+            return false;
+        }
+
+        if (array_key_exists('issues', $result) && count($result['issues']) > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Set the result limit.
+     *
+     * @param integer $limit
+     *
+     * @return self
+     */
+    public function setLimit($limit)
+    {
+        $this->limit = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Returns the size of the current result page.
+     *
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    /**
+     * Returns the start of the current result page.
+     *
+     * @return int
+     */
+    public function getStart()
+    {
+        return $this->start;
     }
 }

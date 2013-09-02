@@ -37,4 +37,13 @@ class ProjectServiceTest extends TestCase
 
         $this->assertEquals(false, $result);
     }
+
+    public function testProjectServiceGetAllErrors()
+    {
+        $service = new ProjectService($this->getClientMockErrors());
+
+        $result = $service->getAll(array());
+
+        $this->assertEquals(false, $result);
+    }
 }

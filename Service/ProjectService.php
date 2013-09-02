@@ -3,22 +3,13 @@
 namespace JiraApiBundle\Service;
 
 use Guzzle\Http\Client;
+use Guzzle\Http\Exception\BadResponseException;
 
 /**
  * Service class that handles projects.
  */
 class ProjectService extends AbstractService
 {
-    /**
-     * Constructor.
-     *
-     * @param \Guzzle\Http\Client $client
-     */
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
-
     /**
      * Method to retrieve all projects.
      * 
@@ -28,12 +19,6 @@ class ProjectService extends AbstractService
     {
         $url = $this->createUrl('project');
 
-        try {
-            $data = $this->getResponseAsArray($url);
-        } catch (BadResponseException $ex) {
-            return false;
-        }
-
-        return $data;
+        return $this->getResponseAsArray($url);
     }
 }
